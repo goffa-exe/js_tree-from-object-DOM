@@ -21,15 +21,15 @@ const food = {
 const tree = document.querySelector('#tree');
 
 function createTree(element, data) {
+  if (!data || typeof data !== 'object' || Object.keys(data).length === 0) {
+    return;
+  }
+
   const ul = document.createElement('ul');
 
   element.append(ul);
 
   for (const key in data) {
-    if (!data || typeof data !== 'object' || Object.keys(data).length === 0) {
-      return;
-    }
-
     const li = document.createElement('li');
 
     if (Object.keys(data[key]).length > 0) {
